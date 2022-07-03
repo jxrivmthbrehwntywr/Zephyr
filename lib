@@ -126,8 +126,8 @@ function lib:Window(text, preset)
     Title.Size = UDim2.new(0, 200, 0, 23)
     Title.Font = Enum.Font.GothamSemibold
     Title.Text = text
-    Title.TextColor3 = Color3.fromRGB(68, 68, 68)
-    Title.TextSize = 12.000
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.TextSize = 24.000
     Title.TextXAlignment = Enum.TextXAlignment.Left
 
     DragFrame.Name = "DragFrame"
@@ -140,14 +140,13 @@ function lib:Window(text, preset)
 
     MakeDraggable(DragFrame, Main)
 
-    local uivisible = true
     UserInputService.InputBegan:Connect(
         function(io, p)
             if io.KeyCode == Enum.KeyCode.RightControl then
-                if uivisible then
-                    ui.Visible = false
+                if Main.Visible then
+                    Main.Visible = false
                 else
-                    ui.Visible = true
+                    Main.Visible = true
                 end
             end
         end
